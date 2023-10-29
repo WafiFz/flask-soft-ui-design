@@ -17,7 +17,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.cluster import KMeans
 
 
-@blueprint.route('/index')
+@blueprint.route('/')
 # @login_required
 def index():
     
