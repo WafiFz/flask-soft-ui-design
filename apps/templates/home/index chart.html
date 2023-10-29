@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pie Chart Example</title>
+    <!-- Tambahkan link ke library Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Atur ukuran canvas sesuai yang Anda inginkan */
+        canvas#myPieChart {
+            width: 80%; /* Lebar 80% dari kontainer */
+            height: 80%; /* Tinggi 80% dari kontainer */
+            padding: 10%; /* Padding 10% dari kontainer */
+        }
+
+
+        #divMyPieChart {
+            width: 50%; /* Lebar 80% dari kontainer */ /* Tinggi akan disetel proporsional dengan lebar (80% dari lebar) */
+            position: relative; /* Diperlukan untuk mengatur tinggi proporsional */
+        }
+    </style>
+</head>
+<body>
+    <h1>Pie Chart</h1>
+
+    <!-- Buat sebuah canvas untuk menampilkan pie chart -->
+    <div id="divMyPieChart">
+      <canvas id="myPieChart"></canvas>
+    </div>
+
+    <script>
+        // Data presentase
+        var data = {
+            labels: ["Positive", "Neutral", "Negative"],
+            datasets: [{
+                data: [10, 50, 40], // Ganti dengan data presentase Anda
+                backgroundColor: ["green", "yellow", "red"], // Warna sektor pie chart
+            }]
+        };
+
+        // Ambil elemen canvas
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+
+        // Buat pie chart
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        display: false, // Sembunyikan legend
+                    },
+                },
+                tooltips: {
+                    enabled: false, // Sembunyikan tooltips
+                },
+            }
+        });
+    </script>
+</body>
+</html>
